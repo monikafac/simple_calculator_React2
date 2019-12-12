@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "gh-pages": "^2.1.1",
-    "homepage": "https://monikafac.github.io/simple_calculator_React2",
+    "homepage": "https://monikafac.github.io/simple-calculator-React2",
     "node-sass": "^4.13.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
