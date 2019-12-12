@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from "./App.module.scss";
 import Item from "./Item/Item";
 import Action from "./Actions/Actions";
 import {dataItems} from "./data/dataItems";
@@ -80,16 +80,19 @@ handleCalculate=(e)=>{
 
   render(){
   return (
-    <div className="App">
-    
+    <div className={styles.wrapper}>
+       <div className={styles.listItemWrapper}>
      {dataItems.map(({value})=>(
        <Item key={value}
        value={value}
        submitFn={this.handleClick}
+       className={styles.listItem}
        />
      )) 
      }
+     </div>
 
+     <div className={styles.listActionWrapper}>
      {dataActions.map(({value})=>(
        <Action key={value}
        value={value}
@@ -97,17 +100,21 @@ handleCalculate=(e)=>{
        />
      )) 
      }
+      </div>
 
+     <div className={styles.calculateReset}>
+      <button onClick={this.handleCalculate}
+      className={styles.calculateButton}>=</button>
 
-      <button onClick={this.handleCalculate}>=</button>
-
-      <button onClick={this.handleReset}>C</button>
-
-     <div>a rowna sie {this.state.a_number}</div> 
-     <div>b rowna sie {this.state.b_number}</div> 
-     <div>działanie to {this.state.to_do}</div>
-     <div>wynik to {this.state.score}</div>
-   
+      <button onClick={this.handleReset}
+      className={styles.cButton}>C</button>
+     </div>
+     <div className={styles.scoreWrapper}>
+     <div><p className={styles.firstNumber}>Pierwsza liczba to: {this.state.a_number}</p></div> 
+     <div><p className={styles.secondNumber}>Druga liczba to: {this.state.b_number}</p></div> 
+     <div><p className={styles.action}>Działanie to:  {this.state.to_do}</p></div>
+     <div><p className={styles.score}>WYNIK:  {this.state.score}</p></div>
+     </div>
     </div>
   );
 }
